@@ -208,8 +208,10 @@ body {
 /* Organizers Grid */
 .organizers-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .organizer-card {
@@ -439,6 +441,11 @@ body {
     
     .topic-card {
         padding: 2rem;
+    }
+
+    .organizers-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
     }
 }
 
