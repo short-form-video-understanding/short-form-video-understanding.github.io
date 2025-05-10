@@ -13,6 +13,11 @@
     <header class="header">
         <nav class="nav-container">
             <div class="logo">SVU 2025</div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#topics">Topics</a></li>
@@ -27,7 +32,8 @@
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h1>The First Workshop on Short-Form Video Understanding:</h1>
+                <h2>The First Workshop on</h2>
+                <h1>Short-Form Video Understanding:</h1>
                 <h1>The Next Frontier in Video Intelligence</h1>
                 <h2>ICCV 2025</h2>
                 <p class="hero-subtitle">Exploring the challenges and opportunities in understanding short-form videos</p>
@@ -282,5 +288,24 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            menuToggle.addEventListener('click', function() {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Close menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html> 
