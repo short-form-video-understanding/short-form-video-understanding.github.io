@@ -182,20 +182,27 @@ body {
 /* Topics Grid */
 .topics-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .topic-card {
     background-color: var(--white);
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: 1rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .topic-card h3 {
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.topic-card p {
+    line-height: 1.7;
 }
 
 /* Organizers Grid */
@@ -423,6 +430,15 @@ body {
 
     .submission-info {
         grid-template-columns: 1fr;
+    }
+
+    .topics-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+    
+    .topic-card {
+        padding: 2rem;
     }
 }
 
