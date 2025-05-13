@@ -589,4 +589,13 @@ a:hover {
     background-color: var(--secondary-color);
     transform: translateY(-3px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.hero h2 a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.hero h2 a:hover {
+    color: #FF9100;
 } 
