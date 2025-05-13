@@ -88,19 +88,24 @@ window.addEventListener('resize', () => {
     }
 });
 
-// Countdown Clock for Submission Deadline (Long Papers)
+// Countdown Clock for Submission Deadline (Full Papers)
 function updateCountdown() {
     // June 3, 2025, 11:59:59 PM AOE (Anywhere on Earth, UTC-12)
     const deadline = new Date(Date.UTC(2025, 5, 4, 11, 59, 59)); // June is month 5 (0-indexed), 11:59:59 UTC-12
     const nowUTC = new Date();
-    const diff = deadline - nowUTC;
+    let diff = deadline - nowUTC;
     function pad(n) { return n.toString().padStart(2, '0'); }
     if (diff > 0) {
-        const days = pad(Math.floor(diff / (1000 * 60 * 60 * 24)));
-        const hours = pad(Math.floor((diff / (1000 * 60 * 60)) % 24));
-        const minutes = pad(Math.floor((diff / (1000 * 60)) % 60));
-        const seconds = pad(Math.floor((diff / 1000) % 60));
-        document.getElementById('countdown-clock').textContent = `Closes in ${days}d ${hours}h ${minutes}m ${seconds}s`;
+        let totalSeconds = Math.floor(diff / 1000);
+        let weeks = Math.floor(totalSeconds / (7 * 24 * 60 * 60));
+        totalSeconds -= weeks * 7 * 24 * 60 * 60;
+        let days = Math.floor(totalSeconds / (24 * 60 * 60));
+        totalSeconds -= days * 24 * 60 * 60;
+        let hours = Math.floor(totalSeconds / (60 * 60));
+        totalSeconds -= hours * 60 * 60;
+        let minutes = Math.floor(totalSeconds / 60);
+        let seconds = totalSeconds % 60;
+        document.getElementById('countdown-clock').textContent = `Closes in ${pad(weeks)}w ${pad(days)}d ${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
     } else {
         document.getElementById('countdown-clock').textContent = 'Submission deadline has passed.';
     }
@@ -111,14 +116,19 @@ function updateCountdownShort() {
     // August 6, 2025, 11:59:59 PM AOE (Anywhere on Earth, UTC-12)
     const deadline = new Date(Date.UTC(2025, 7, 7, 11, 59, 59)); // August is month 7 (0-indexed), 11:59:59 UTC-12
     const nowUTC = new Date();
-    const diff = deadline - nowUTC;
+    let diff = deadline - nowUTC;
     function pad(n) { return n.toString().padStart(2, '0'); }
     if (diff > 0) {
-        const days = pad(Math.floor(diff / (1000 * 60 * 60 * 24)));
-        const hours = pad(Math.floor((diff / (1000 * 60 * 60)) % 24));
-        const minutes = pad(Math.floor((diff / (1000 * 60)) % 60));
-        const seconds = pad(Math.floor((diff / 1000) % 60));
-        document.getElementById('countdown-clock-short').textContent = `Closes in ${days}d ${hours}h ${minutes}m ${seconds}s`;
+        let totalSeconds = Math.floor(diff / 1000);
+        let weeks = Math.floor(totalSeconds / (7 * 24 * 60 * 60));
+        totalSeconds -= weeks * 7 * 24 * 60 * 60;
+        let days = Math.floor(totalSeconds / (24 * 60 * 60));
+        totalSeconds -= days * 24 * 60 * 60;
+        let hours = Math.floor(totalSeconds / (60 * 60));
+        totalSeconds -= hours * 60 * 60;
+        let minutes = Math.floor(totalSeconds / 60);
+        let seconds = totalSeconds % 60;
+        document.getElementById('countdown-clock-short').textContent = `Closes in ${pad(weeks)}w ${pad(days)}d ${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
     } else {
         document.getElementById('countdown-clock-short').textContent = 'Submission deadline has passed.';
     }

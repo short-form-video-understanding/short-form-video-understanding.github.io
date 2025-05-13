@@ -326,7 +326,7 @@ body {
 /* Submission Section */
 .submission-info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     gap: 2rem;
 }
 
@@ -336,6 +336,13 @@ body {
 
 .dates-list li {
     margin-bottom: 1rem;
+}
+
+.submission-guidelines-list {
+    padding-left: 1.2em;
+    margin-left: 0;
+    list-style-position: inside;
+    text-indent: -1.2em;
 }
 
 /* Footer */
@@ -441,10 +448,6 @@ body {
     .topics-grid,
     .organizers-grid,
     .speakers-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .submission-info {
         grid-template-columns: 1fr;
     }
 
@@ -598,4 +601,55 @@ a:hover {
 }
 .hero h2 a:hover {
     color: #FF9100;
-} 
+}
+
+.flex-bullet {
+    display: flex;
+    align-items: center;
+    gap: 4em;
+    list-style-type: disc;
+    list-style-position: inside;
+    position: relative;
+}
+
+.important-dates-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2em;
+    table-layout: fixed;
+}
+.important-dates-table td {
+    padding: 0.5em 0.8em;
+    vertical-align: middle;
+    border: none;
+    font-size: 1em;
+}
+.important-dates-table td.event-col {
+    width: 200px;
+}
+.important-dates-table td.date-col {
+    width: 260px;
+}
+.important-dates-table td.countdown-col {
+    width: 170px;
+    text-align: left;
+    padding-left: 0.8em;
+}
+.countdown-clock {
+    font-size: 0.9em;
+    color: #FF9100;
+    font-weight: 600;
+    display: inline-block;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.important-dates-table tr:not(:last-child) td {
+    border-bottom: 1px solid #e0e0e0;
+}
+.important-dates-table tr:first-child td {
+    border-top: 1px solid #e0e0e0;
+}
+.important-dates-table tr:last-child td {
+    border-bottom: 1px solid #e0e0e0;
+}

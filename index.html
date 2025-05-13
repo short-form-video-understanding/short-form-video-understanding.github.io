@@ -306,28 +306,69 @@
                 <div class="submission-info">
                     <div class="submission-details">
                         <h3>Important Dates</h3>
-                        <h4 style="margin-top:1.5em;">Long Papers</h4>
-                        <ul style="margin-left:1.5em; list-style: disc;">
-                            <li style="margin-bottom:0.5em;"><s><strong>Submissions Open:</strong> May 12, 2025</s></li>
-                            <li class="flex-bullet" style="margin-bottom:0.5em;">
-                                <span><strong>Submissions Due:</strong> Jun 03, 2025, 11:59 PM AoE</span>
-                                <span id="countdown-clock" style="font-size:0.9em; color:#FF9100; font-weight: 600;"></span>
-                            </li>
-                            <li style="margin-bottom:0.5em;"><strong>Notification to Authors:</strong> Jun 20, 2025</li>
-                            <li><strong>Camera-Ready Due:</strong> Jul 18, 2025</li>
-                        </ul>
+                        <h4 style="margin-top:1.5em;">Full Papers</h4>
+                        <table class="important-dates-table">
+                            <tr>
+                                <td class="event-col"><s><strong>Submissions Open</strong></s></td>
+                                <td class="date-col"><s>May 12, 2025</s></td>
+                                <td class="countdown-col"></td>
+                            </tr>
+                            <tr>
+                                <td class="event-col"><strong>Submissions Due</strong></td>
+                                <td class="date-col">June 03, 2025, 11:59 PM AoE</td>
+                                <td class="countdown-col"><span id="countdown-clock" class="countdown-clock"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="event-col"><strong>Notification to Authors</strong></td>
+                                <td class="date-col">June 20, 2025</td>
+                                <td class="countdown-col"></td>
+                            </tr>
+                            <tr>
+                                <td class="event-col"><strong>Camera-Ready Due</strong></td>
+                                <td class="date-col">July 18, 2025</td>
+                                <td class="countdown-col"></td>
+                            </tr>
+                        </table>
                         <h4 style="margin-top:1.5em;">Short Papers and Extended Abstracts</h4>
-                        <ul style="margin-left:1.5em; list-style: disc;">
-                            <li style="margin-bottom:0.5em;"><strong>Submissions Open:</strong> Jul 14, 2025</li>
-                            <li class="flex-bullet" style="margin-bottom:0.5em;"><strong>Submissions Due:</strong> Aug 06, 2025, 11:59 PM AoE <span id="countdown-clock-short" style="font-size:0.9em; color:#FF9100; font-weight: 600;"></span></li>
-                            <li style="margin-bottom:0.5em;"><strong>Notification to Authors:</strong> Aug 31, 2025</li>
-                            <li><strong>Camera-Ready Due:</strong> Sep 12, 2025</li>
-                        </ul>
+                        <table class="important-dates-table">
+                            <tr>
+                                <td class="event-col"><strong>Submissions Open</strong></td>
+                                <td class="date-col">July 14, 2025</td>
+                                <td class="countdown-col"></td>
+                            </tr>
+                            <tr>
+                                <td class="event-col"><strong>Submissions Due</strong></td>
+                                <td class="date-col">August 06, 2025, 11:59 PM AoE</td>
+                                <td class="countdown-col"><span id="countdown-clock-short" class="countdown-clock"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="event-col"><strong>Notification to Authors</strong></td>
+                                <td class="date-col">August 31, 2025</td>
+                                <td class="countdown-col"></td>
+                            </tr>
+                            <tr>
+                                <td class="event-col"><strong>Camera-Ready Due</strong></td>
+                                <td class="date-col">September 12, 2025</td>
+                                <td class="countdown-col"></td>
+                            </tr>
+                        </table>
                     </div>
                     <div class="submission-guidelines">
                         <h3>Submission Guidelines</h3>
-                        <p>We welcome submissions of extended abstracts (1-2 pages), short papers (2-4 pages), and long papers (5-8 pages).
-                            Long papers will be published with ICCV 2025 proceedings, extended abstracts and short papers will be archived as part of the workshop.
+                        <p>We welcome submissions of extended abstracts (1-2 pages), short papers (2-4 pages), and full papers (5-8 pages).
+                            Full papers will be published with ICCV 2025 proceedings, extended abstracts and short papers will be archived as part of the workshop.
+                            <ul class="submission-guidelines-list">
+                                <li>
+                                    <strong>Full papers</strong> are intended to demonstrate original research ideas and their impacts (theoretical or empirical), original research findings and analysis, or industrial applications of various research domains. Full papers should provide comprehensive background, clear motivation, rigorous methodology, and thorough experimental validation to demonstrate significant contributions to the field.
+                                </li>
+                                <li>
+                                    <strong>Short papers</strong> are intended for reporting promising early-stage research, novel ideas, or results that may not yet be fully developed for a full paper. Short papers should provide sufficient background, motivation, and preliminary results to demonstrate the potential impact and value to the community.
+                                </li>
+                                <li>
+                                    <strong>Extended abstracts</strong> are intended for sharing innovative concepts, position statements, or works-in-progress that would benefit from community feedback. They are ideal for presenting emerging ideas, pilot studies, or visionary perspectives that spark discussion and inspire future research directions.
+                                </li>
+                            </ul>
+                            <br/>
                             All submissions should follow the <a href="https://iccv.thecvf.com/Conferences/2025/AuthorGuidelines" target="_blank">ICCV 2025 author guidelines</a>.
                         </p>
                         <br/>
@@ -335,6 +376,11 @@
                             Submission Portal: <a href="https://openreview.net/group?id=thecvf.com/ICCV/2025/Workshop/SVU" target="_blank">OpenReview</a>
                         </p>
                         <br/>
+                        <h3>Review Guidelines</h3>
+                        <p>
+                          Our review process follows that of ICCV 2025, and reviewers should adhere to the same <a href="https://iccv.thecvf.com/Conferences/2025/ReviewerGuidelines" target="_blank">ICCV 2025 reviewer guidelines</a>.
+                          We thank all reviewers for maintaining the technical standards of ICCV 2025!
+                        </p>
                     </div>
                 </div>
             </div>
