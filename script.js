@@ -86,4 +86,26 @@ window.addEventListener('resize', () => {
     if (window.innerWidth <= 768 && !document.querySelector('.mobile-menu-button')) {
         createMobileMenu();
     }
-}); 
+});
+
+// Countdown Clock for Submission Deadline
+function updateCountdown() {
+    // June 3, 2025, 11:59:59 PM AOE (Anywhere on Earth, UTC-12)
+    const deadline = new Date(Date.UTC(2025, 5, 4, 11, 59, 59)); // June is month 5 (0-indexed), 11:59:59 UTC-12
+    const nowUTC = new Date();
+    const diff = deadline - nowUTC;
+    function pad(n) { return n.toString().padStart(2, '0'); }
+    if (diff > 0) {
+        const days = pad(Math.floor(diff / (1000 * 60 * 60 * 24)));
+        const hours = pad(Math.floor((diff / (1000 * 60 * 60)) % 24));
+        const minutes = pad(Math.floor((diff / (1000 * 60)) % 60));
+        const seconds = pad(Math.floor((diff / 1000) % 60));
+        document.getElementById('countdown-clock').textContent = `Closes in ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    } else {
+        document.getElementById('countdown-clock').textContent = 'Submission deadline has passed.';
+    }
+}
+
+// Initialize countdown clock
+setInterval(updateCountdown, 1000);
+updateCountdown(); 

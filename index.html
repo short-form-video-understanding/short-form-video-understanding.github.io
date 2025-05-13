@@ -305,11 +305,20 @@
                 <div class="submission-info">
                     <div class="submission-details">
                         <h3>Important Dates</h3>
-                        <ul class="dates-list">
-                            <li><strong>Long Paper Submission Deadline:</strong> June 03, 2025, 11:59 PM AOE</li>
-                            <li><strong>Notification to Authors:</strong> June 20, 2025</li>
-                            <li><strong>Camera-Ready Deadline:</strong> July 18, 2025</li>
-                            <li><strong>Short Paper and Extended Abstract Submission Deadline:</strong> Coming soon!</li>
+                        <h4 style="margin-top:1.5em;">Long Papers</h4>
+                        <ul style="margin-left:1.5em; list-style: disc;">
+                            <li class="flex-bullet" style="margin-bottom:0.5em;">
+                                <span><strong>Submissions Due:</strong> June 03, 2025, 11:59 PM AoE</span>
+                                <span id="countdown-clock" style="font-size:0.9em; color:#FF9100; font-weight: 600;"></span>
+                            </li>
+                            <li style="margin-bottom:0.5em;"><strong>Notification to Authors:</strong> June 20, 2025</li>
+                            <li><strong>Camera-Ready Due:</strong> July 18, 2025</li>
+                        </ul>
+                        <h4 style="margin-top:1.5em;">Short Papers and Extended Abstracts</h4>
+                        <ul style="margin-left:1.5em; list-style: disc;">
+                            <li class="flex-bullet" style="margin-bottom:0.5em;"><strong>Submissions Due:</strong> TBA</li>
+                            <li style="margin-bottom:0.5em;"><strong>Notification to Authors:</strong> TBA</li>
+                            <li><strong>Camera-Ready Deadline:</strong> TBA</li>
                         </ul>
                     </div>
                     <div class="submission-guidelines">
@@ -351,6 +360,8 @@
         </div>
     </footer>
 
+    <button id="go-to-top" title="Go to top"><i class="fas fa-chevron-up"></i></button>
+
     <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -367,6 +378,24 @@
                 link.addEventListener('click', () => {
                     menuToggle.classList.remove('active');
                     navLinks.classList.remove('active');
+                });
+            });
+
+            // Go to top button functionality
+            const goToTopButton = document.getElementById('go-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    goToTopButton.classList.add('show');
+                } else {
+                    goToTopButton.classList.remove('show');
+                }
+            });
+
+            goToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
                 });
             });
         });
