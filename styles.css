@@ -1,6 +1,7 @@
 :root {
     --primary-color: #2563eb;
     --secondary-color: #1e40af;
+    --primary-color-alt: #FF9100;
     --text-color: #1f2937;
     --light-bg: #f3f4f6;
     --white: #ffffff;
@@ -632,8 +633,43 @@ a:hover {
     text-decoration: none;
     transition: color 0.3s;
 }
-.hero h2 a:hover {
-    color: #FF9100;
+
+.hero-caption {
+    position: absolute;
+    right: 2.5rem;
+    bottom: 0.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    background: rgba(0,0,0,0.35);
+    color: #fff;
+    padding: 0.5em 1.2em;
+    border-radius: 1.2em;
+    font-size: 0.8em;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.hero-caption i {
+    color: var(--primary-color-alt);
+    font-size: 1.2em;
+    margin-right: 0.4em;
+}
+
+.hero-caption a {
+    color: #fff;
+    transition: color 0.2s;
+}
+
+.hero-caption a:hover {
+    color: var(--primary-color-alt);
+}
+
+.hero a:hover,
+.hero .cta-primary:hover,
+.hero .cta-secondary:hover {
+    color: var(--primary-color-alt) !important;
+    border-color: var(--primary-color-alt) !important;
 }
 
 .flex-bullet {
@@ -670,7 +706,7 @@ a:hover {
 }
 .countdown-clock {
     font-size: 0.9em;
-    color: #FF9100;
+    color: var(--primary-color-alt);
     font-weight: 600;
     display: inline-block;
     text-align: left;
