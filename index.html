@@ -9,29 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        .social-link {
-            display: inline-block;
-            padding: 8px 16px;
-            margin: 0 8px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            background-color: #f0f0f0;
-            color: #333333;
-        }
-        
-        .social-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            background-color: #e0e0e0;
-        }
-
-        .social-link i {
-            font-size: 1.2em;
-        }
-    </style>
 </head>
 <body>
     <header class="header">
@@ -418,42 +395,5 @@
     <button id="go-to-top" title="Go to top"><i class="fas fa-chevron-up"></i></button>
 
     <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            
-            menuToggle.addEventListener('click', function() {
-                menuToggle.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-
-            // Close menu when clicking a link
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    menuToggle.classList.remove('active');
-                    navLinks.classList.remove('active');
-                });
-            });
-
-            // Go to top button functionality
-            const goToTopButton = document.getElementById('go-to-top');
-            
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    goToTopButton.classList.add('show');
-                } else {
-                    goToTopButton.classList.remove('show');
-                }
-            });
-
-            goToTopButton.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
-</html> 
+</html>

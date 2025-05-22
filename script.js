@@ -138,4 +138,40 @@ function updateCountdownShort() {
 setInterval(updateCountdown, 1000);
 setInterval(updateCountdownShort, 1000);
 updateCountdown();
-updateCountdownShort(); 
+updateCountdownShort();
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuToggle.addEventListener('click', function() {
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+
+    // Go to top button functionality
+    const goToTopButton = document.getElementById('go-to-top');
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            goToTopButton.classList.add('show');
+        } else {
+            goToTopButton.classList.remove('show');
+        }
+    });
+
+    goToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}); 
