@@ -91,7 +91,7 @@ window.addEventListener('resize', () => {
 // Countdown Clock for Submission Deadline (Full Papers)
 function updateCountdown() {
     // June 3, 2025, 11:59:59 PM AOE (Anywhere on Earth, UTC-12)
-    const deadline = new Date(Date.UTC(2025, 5, 18, 11, 59, 59)); // June is month 5 (0-indexed), 11:59:59 UTC
+    const deadline = new Date(Date.UTC(2025, 5, 28, 11, 59, 59)); // June is month 5 (0-indexed), 11:59:59 UTC
     const nowUTC = new Date();
     let diff = deadline - nowUTC;
     function pad(n) { return n.toString().padStart(2, '0'); }
