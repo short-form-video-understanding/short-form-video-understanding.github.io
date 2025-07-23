@@ -86,4 +86,92 @@ window.addEventListener('resize', () => {
     if (window.innerWidth <= 768 && !document.querySelector('.mobile-menu-button')) {
         createMobileMenu();
     }
+});
+
+// Countdown Clock for Submission Deadline (Full Papers)
+function updateCountdown() {
+    // June 3, 2025, 11:59:59 PM AOE (Anywhere on Earth, UTC-12)
+    const deadline = new Date(Date.UTC(2025, 5, 28, 11, 59, 59)); // June is month 5 (0-indexed), 11:59:59 UTC
+    const nowUTC = new Date();
+    let diff = deadline - nowUTC;
+    function pad(n) { return n.toString().padStart(2, '0'); }
+    if (diff > 0) {
+        let totalSeconds = Math.floor(diff / 1000);
+        let weeks = Math.floor(totalSeconds / (7 * 24 * 60 * 60));
+        totalSeconds -= weeks * 7 * 24 * 60 * 60;
+        let days = Math.floor(totalSeconds / (24 * 60 * 60));
+        totalSeconds -= days * 24 * 60 * 60;
+        let hours = Math.floor(totalSeconds / (60 * 60));
+        totalSeconds -= hours * 60 * 60;
+        let minutes = Math.floor(totalSeconds / 60);
+        let seconds = totalSeconds % 60;
+        document.getElementById('countdown-clock').textContent = `Closes in ${pad(weeks)}w ${pad(days)}d ${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+    } else {
+        document.getElementById('countdown-clock').textContent = 'Submission deadline has passed.';
+    }
+}
+
+// Countdown Clock for Short Papers and EAs
+function updateCountdownShort() {
+    // August 6, 2025, 11:59:59 PM AOE (Anywhere on Earth, UTC-12)
+    const deadline = new Date(Date.UTC(2025, 7, 21, 11, 59, 59)); // August is month 7 (0-indexed), 11:59:59 UTC
+    const nowUTC = new Date();
+    let diff = deadline - nowUTC;
+    function pad(n) { return n.toString().padStart(2, '0'); }
+    if (diff > 0) {
+        let totalSeconds = Math.floor(diff / 1000);
+        let weeks = Math.floor(totalSeconds / (7 * 24 * 60 * 60));
+        totalSeconds -= weeks * 7 * 24 * 60 * 60;
+        let days = Math.floor(totalSeconds / (24 * 60 * 60));
+        totalSeconds -= days * 24 * 60 * 60;
+        let hours = Math.floor(totalSeconds / (60 * 60));
+        totalSeconds -= hours * 60 * 60;
+        let minutes = Math.floor(totalSeconds / 60);
+        let seconds = totalSeconds % 60;
+        document.getElementById('countdown-clock-short').textContent = `Closes in ${pad(weeks)}w ${pad(days)}d ${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+    } else {
+        document.getElementById('countdown-clock-short').textContent = 'Submission deadline has passed.';
+    }
+}
+
+// Initialize both countdown clocks
+setInterval(updateCountdown, 1000);
+setInterval(updateCountdownShort, 1000);
+updateCountdown();
+updateCountdownShort();
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuToggle.addEventListener('click', function() {
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+
+    // Go to top button functionality
+    const goToTopButton = document.getElementById('go-to-top');
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            goToTopButton.classList.add('show');
+        } else {
+            goToTopButton.classList.remove('show');
+        }
+    });
+
+    goToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 }); 
