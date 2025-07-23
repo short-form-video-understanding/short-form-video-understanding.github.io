@@ -314,8 +314,10 @@ body {
 /* Speakers Grid */
 .speakers-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .speaker-card {
@@ -324,11 +326,59 @@ body {
     border-radius: 1rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.speaker-card:hover {
+    transform: translateY(-5px);
+}
+
+.speaker-card .profile-image {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary-color-alt);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.speaker-card .profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.speaker-card:hover .profile-img {
+    transform: scale(1.05);
 }
 
 .speaker-card h3 {
-    color: var(--primary-color);
+    color: var(--primary-color-alt);
     margin-bottom: 0.5rem;
+}
+
+.speaker-card h3 a {
+    color: var(--primary-color-alt);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.speaker-card h3 a:hover {
+    color: #e67e00;
+}
+
+.speaker-card .affiliation {
+    color: var(--gray-600);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.speaker-card .title {
+    color: var(--gray-500);
+    font-size: 0.9rem;
+    font-style: italic;
 }
 
 /* Schedule Timeline */
@@ -495,6 +545,11 @@ body {
     }
 
     .organizers-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .speakers-grid {
         grid-template-columns: 1fr;
         padding: 0 1rem;
     }
