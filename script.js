@@ -57,36 +57,26 @@ document.querySelectorAll('.section').forEach(section => {
     observer.observe(section);
 });
 
-// Mobile menu toggle
-const createMobileMenu = () => {
-    const nav = document.querySelector('.nav-links');
-    const menuButton = document.createElement('button');
-    menuButton.classList.add('mobile-menu-button');
-    menuButton.innerHTML = `
-        <span></span>
-        <span></span>
-        <span></span>
-    `;
+// Mobile menu toggle - use existing menu-toggle element
+const initializeMobileMenu = () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
     
-    document.querySelector('.nav-container').prepend(menuButton);
-    
-    menuButton.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        menuButton.classList.toggle('active');
-    });
-};
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
 
-// Initialize mobile menu if screen width is small
-if (window.innerWidth <= 768) {
-    createMobileMenu();
-}
-
-// Update mobile menu on window resize
-window.addEventListener('resize', () => {
-    if (window.innerWidth <= 768 && !document.querySelector('.mobile-menu-button')) {
-        createMobileMenu();
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
     }
-});
+};
 
 // Countdown Clock for Submission Deadline (Full Papers)
 function updateCountdown() {
@@ -141,21 +131,8 @@ updateCountdown();
 updateCountdownShort();
 
 document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    menuToggle.addEventListener('click', function() {
-        menuToggle.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-
-    // Close menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            menuToggle.classList.remove('active');
-            navLinks.classList.remove('active');
-        });
-    });
+    // Initialize mobile menu
+    initializeMobileMenu();
 
     // Go to top button functionality
     const goToTopButton = document.getElementById('go-to-top');

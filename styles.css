@@ -26,6 +26,8 @@ body {
     font-family: 'Exo 2', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    word-wrap: break-word; /* Handle long words */
 }
 
 .container {
@@ -470,6 +472,120 @@ body {
 }
 
 /* Responsive Design */
+/* Mobile First Approach - Small screens */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .nav-container {
+        padding: 0.75rem 1rem;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .hero {
+        padding: 5rem 1rem 3rem;
+        min-height: 100vh;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+        line-height: 1.2;
+        margin-bottom: 0.75rem;
+    }
+
+    .hero h2 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .section {
+        padding: 3rem 0;
+    }
+
+    .section h2 {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .cta-primary, .cta-secondary {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+
+    .topics-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .topic-card {
+        padding: 1.5rem;
+    }
+
+    .topic-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .organizers-grid,
+    .speakers-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .organizer-card,
+    .speaker-card {
+        padding: 1.5rem;
+    }
+
+    .profile-image {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 1rem;
+    }
+
+    .hero-caption {
+        right: 1rem;
+        bottom: 1rem;
+        font-size: 0.75rem;
+        padding: 0.4em 0.8em;
+    }
+
+    .important-dates-table {
+        font-size: 0.85rem;
+    }
+
+    .important-dates-table td {
+        padding: 0.4em 0.6em;
+    }
+
+    .important-dates-table td.event-col {
+        width: 150px;
+    }
+
+    .important-dates-table td.date-col {
+        width: 200px;
+    }
+
+    .important-dates-table td.countdown-col {
+        width: 120px;
+    }
+}
+
+/* Tablet and medium screens */
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: column;
@@ -552,6 +668,30 @@ body {
     .speakers-grid {
         grid-template-columns: 1fr;
         padding: 0 1rem;
+    }
+}
+
+/* Large mobile screens and small tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+    .topics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .organizers-grid,
+    .speakers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop and large screens */
+@media (min-width: 769px) {
+    .topics-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+
+    .organizers-grid,
+    .speakers-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -776,4 +916,39 @@ a:hover {
 }
 .important-dates-table tr:last-child td {
     border-bottom: 1px solid #e0e0e0;
+}
+
+/* Responsive images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive tables */
+.important-dates-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Ensure proper scaling on all devices */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/* Better touch targets for mobile */
+@media (max-width: 768px) {
+    .cta-primary, .cta-secondary {
+        min-height: 44px; /* iOS recommended touch target size */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .nav-links a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
