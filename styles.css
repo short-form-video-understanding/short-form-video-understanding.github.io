@@ -28,6 +28,12 @@ body {
     color: var(--text-color);
     overflow-x: hidden; /* Prevent horizontal scroll */
     word-wrap: break-word; /* Handle long words */
+    max-width: 100vw; /* Ensure body doesn't exceed viewport width */
+}
+
+html {
+    overflow-x: hidden; /* Prevent horizontal scroll on html element */
+    max-width: 100vw; /* Ensure html doesn't exceed viewport width */
 }
 
 .container {
@@ -418,24 +424,58 @@ body {
 
 .submission-details h3,
 .submission-guidelines h3 {
-    color: var(--primary-color);
+    color: var(--text-color);
     margin-bottom: 1.5rem;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 700;
 }
 
 .submission-details h4 {
-    color: var(--gray-700);
+    color: var(--text-color);
     margin-bottom: 1rem;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
 .submission-guidelines p {
     line-height: 1.7;
     margin-bottom: 1rem;
+    color: var(--text-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    word-break: break-word;
 }
 
 /* Submission section wrapper for better mobile layout */
 .submission-info {
+    max-width: 100%;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.submission-guidelines {
+    max-width: 100%;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Apply the same text wrapping as general sections */
+.submission-info p,
+.submission-guidelines p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: 100%;
+}
+
+.submission-info li,
+.submission-guidelines li {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
     max-width: 100%;
 }
 
@@ -447,17 +487,23 @@ body {
 .submission-guidelines-list li {
     margin-bottom: 1rem;
     padding-left: 0.5rem;
+    color: var(--text-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    word-break: break-word;
 }
 
-/* Links in submission section */
+/* Links in submission section - no underlines */
 .submission-guidelines a {
     color: var(--primary-color);
-    text-decoration: underline;
+    text-decoration: none;
     font-weight: 500;
 }
 
 .submission-guidelines a:hover {
     color: var(--secondary-color);
+    text-decoration: underline;
 }
 
 .dates-list {
@@ -520,6 +566,16 @@ body {
 @media (max-width: 480px) {
     .container {
         padding: 0 1rem;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* Ensure all text elements wrap properly */
+    p, li, span, div {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        max-width: 100%;
     }
 
     .nav-container {
@@ -553,6 +609,8 @@ body {
 
     .section {
         padding: 3rem 0;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     .section h2 {
@@ -610,56 +668,98 @@ body {
 
     .submission-details h3,
     .submission-guidelines h3 {
-        font-size: 1.25rem;
+        font-size: 1.2rem;
         margin-bottom: 1rem;
+        color: var(--text-color);
+        font-weight: 700;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
     }
 
     .submission-details h4 {
-        font-size: 1.1rem;
+        font-size: 1rem;
         margin-bottom: 0.75rem;
+        color: var(--text-color);
+        font-weight: 600;
     }
 
     .submission-guidelines p {
         font-size: 0.9rem;
         line-height: 1.6;
+        color: var(--text-color);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+        hyphens: auto;
+        word-break: break-word;
     }
 
     .submission-guidelines-list {
         font-size: 0.9rem;
         padding-left: 1rem;
+        max-width: 100%;
     }
 
     .submission-guidelines-list li {
         margin-bottom: 0.75rem;
+        color: var(--text-color);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        word-break: break-word;
+        max-width: 100%;
+    }
+
+    .submission-guidelines a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .submission-guidelines a:hover {
+        color: var(--secondary-color);
+        text-decoration: underline;
+    }
+
+    /* Ensure submission guidelines wrap properly like other sections */
+    .submission-guidelines {
+        max-width: 100%;
+        overflow-x: hidden;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     .important-dates-table {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         margin-bottom: 1.5rem;
+        max-width: 100%;
+        overflow-x: auto;
     }
 
     .important-dates-table td {
-        padding: 0.3em 0.4em;
+        padding: 0.4em 0.6em;
         word-wrap: break-word;
+        max-width: 100%;
     }
 
     .important-dates-table td.event-col {
-        width: 120px;
-        font-size: 0.75rem;
+        width: 150px;
+        min-width: 120px;
     }
 
     .important-dates-table td.date-col {
-        width: 160px;
-        font-size: 0.75rem;
+        width: 200px;
+        min-width: 150px;
     }
 
     .important-dates-table td.countdown-col {
-        width: 100px;
-        font-size: 0.7rem;
+        width: 120px;
+        min-width: 100px;
     }
 
     .countdown-clock {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -668,9 +768,24 @@ body {
 
 /* Tablet and medium screens */
 @media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
     .nav-container {
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         padding: 1rem;
+        position: relative;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        z-index: 1001;
     }
 
     .nav-links {
@@ -680,6 +795,12 @@ body {
         width: 100%;
         padding: 1rem 0;
         display: none; /* Hidden by default on mobile */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--white);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
     }
 
     .nav-links.active {
@@ -753,11 +874,55 @@ body {
 
     .submission-details h3,
     .submission-guidelines h3 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
+        color: var(--text-color);
+        font-weight: 700;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+        hyphens: auto;
+        word-break: break-word;
     }
 
     .submission-details h4 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        color: var(--text-color);
+        font-weight: 600;
+    }
+
+    .submission-guidelines p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: var(--text-color);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+        hyphens: auto;
+        word-break: break-word;
+    }
+
+    .submission-guidelines-list {
+        font-size: 0.95rem;
+        padding-left: 1rem;
+        max-width: 100%;
+    }
+
+    .submission-guidelines-list li {
+        margin-bottom: 0.75rem;
+        color: var(--text-color);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        word-break: break-word;
+        max-width: 100%;
+    }
+
+    /* Ensure submission guidelines wrap properly on tablet */
+    .submission-guidelines {
+        max-width: 100%;
+        overflow-x: hidden;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     .important-dates-table {
@@ -765,19 +930,19 @@ body {
     }
 
     .important-dates-table td.event-col {
-        width: 160px;
+        width: 170px;
     }
 
     .important-dates-table td.date-col {
-        width: 200px;
+        width: 220px;
     }
 
     .important-dates-table td.countdown-col {
-        width: 140px;
+        width: 150px;
     }
 
     .countdown-clock {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
 }
 
@@ -815,9 +980,8 @@ body {
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
-        position: absolute;
-        right: 1rem;
-        top: 1rem;
+        position: relative;
+        z-index: 1001;
     }
 
     .menu-toggle span {
@@ -997,9 +1161,11 @@ a:hover {
     vertical-align: middle;
     border: none;
     font-size: 1em;
+    color: var(--text-color);
 }
 .important-dates-table td.event-col {
     width: 200px;
+    font-weight: 400;
 }
 .important-dates-table td.date-col {
     width: 260px;
@@ -1008,6 +1174,8 @@ a:hover {
     width: 170px;
     text-align: left;
     padding-left: 0.8em;
+    color: var(--primary-color-alt);
+    font-weight: 600;
 }
 .countdown-clock {
     font-size: 0.9em;
@@ -1063,14 +1231,14 @@ img {
 }
 
 .important-dates-table td.event-col {
-    font-weight: 600;
-    color: var(--primary-color);
+    font-weight: 400;
+    color: var(--text-color);
     border-bottom: 1px solid var(--gray-200);
     margin-bottom: 0.25rem;
 }
 
 .important-dates-table td.date-col {
-    color: var(--gray-700);
+    color: var(--text-color);
     margin-bottom: 0.25rem;
 }
 
@@ -1106,7 +1274,7 @@ img {
 
     .important-dates-table td.event-col {
         width: 200px;
-        font-weight: 600;
+        font-weight: 400;
         color: var(--text-color);
         border-bottom: 1px solid #e0e0e0;
     }
@@ -1147,5 +1315,107 @@ html {
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+}
+
+/* CRITICAL FIX: Force submission guidelines to wrap properly on mobile */
+@media (max-width: 768px) {
+    /* Force the entire submission section to behave properly */
+    #submission {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+    }
+    
+    #submission .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+        box-sizing: border-box !important;
+    }
+    
+    #submission .submission-info {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+    }
+    
+    .submission-guidelines {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+        white-space: normal !important;
+        box-sizing: border-box !important;
+        display: block !important;
+    }
+    
+    .submission-guidelines * {
+        width: 100% !important;
+        max-width: 100% !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+        display: block !important;
+    }
+    
+    .submission-guidelines p,
+    .submission-guidelines li {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+    }
+    
+    .submission-guidelines-list {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        box-sizing: border-box !important;
+        display: block !important;
+    }
+    
+    .submission-guidelines-list li {
+        width: 100% !important;
+        max-width: 100% !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+        display: block !important;
+    }
+}
+
+/* NUCLEAR OPTION: Force ALL text to wrap on mobile */
+@media (max-width: 768px) {
+    * {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+        white-space: normal !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    body, html {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+        width: 100vw !important;
     }
 }
