@@ -629,61 +629,45 @@ html {
     margin: 0;
 }
 
-/* Special styling for different session types */
-.timeline-item:nth-child(1) {
+/* Special styling for different session types using semantic classes */
+.timeline-item.remarks {
     border-left: 4px solid var(--primary-color);
 }
 
-.timeline-item:nth-child(1) .time {
+.timeline-item.remarks .time {
     color: var(--primary-color);
 }
 
-.timeline-item:nth-child(2),
-.timeline-item:nth-child(3),
-.timeline-item:nth-child(7) {
+.timeline-item.invited-talk {
     border-left: 4px solid var(--primary-color-alt);
 }
 
-.timeline-item:nth-child(2) .time,
-.timeline-item:nth-child(3) .time,
-.timeline-item:nth-child(7) .time {
+.timeline-item.invited-talk .time {
     color: var(--primary-color-alt);
 }
 
-.timeline-item:nth-child(4),
-.timeline-item:nth-child(6) {
+.timeline-item.oral-session {
     border-left: 4px solid var(--secondary-color);
 }
 
-.timeline-item:nth-child(4) .time,
-.timeline-item:nth-child(6) .time {
+.timeline-item.oral-session .time {
     color: var(--secondary-color);
 }
 
-.timeline-item:nth-child(5),
-.timeline-item:nth-child(8) {
+.timeline-item.poster-session {
     border-left: 4px solid var(--secondary-color-alt);
 }
 
-.timeline-item:nth-child(5) .time,
-.timeline-item:nth-child(8) .time {
+.timeline-item.poster-session .time {
     color: var(--secondary-color-alt);
 }
 
-.timeline-item:nth-child(9) {
-    border-left: 4px solid var(--primary-color-alt);
+.timeline-item.panel-discussion {
+    border-left: 4px solid var(--secondary-color-alt);
 }
 
-.timeline-item:nth-child(9) .time {
-    color: var(--primary-color-alt);
-}
-
-.timeline-item:nth-child(10) {
-    border-left: 4px solid var(--primary-color);
-}
-
-.timeline-item:nth-child(10) .time {
-    color: var(--primary-color);
+.timeline-item.panel-discussion .time {
+    color: var(--secondary-color-alt);
 }
 
 .time {
