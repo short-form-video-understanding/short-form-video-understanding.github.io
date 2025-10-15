@@ -130,9 +130,36 @@ setInterval(updateCountdownShort, 1000);
 updateCountdown();
 updateCountdownShort();
 
+// Initialize collapsible schedule items
+function initializeScheduleToggles() {
+    const toggleButtons = document.querySelectorAll('.toggle-btn');
+    
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            // Find the event details section
+            const eventHeader = this.closest('.event-header');
+            const eventDetails = eventHeader.nextElementSibling;
+            
+            // Toggle the expanded class
+            if (eventDetails.classList.contains('expanded')) {
+                eventDetails.classList.remove('expanded');
+                this.classList.remove('active');
+            } else {
+                eventDetails.classList.add('expanded');
+                this.classList.add('active');
+            }
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize mobile menu
     initializeMobileMenu();
+
+    // Initialize schedule toggles
+    initializeScheduleToggles();
 
     // Go to top button functionality
     const goToTopButton = document.getElementById('go-to-top');
