@@ -262,6 +262,7 @@ html {
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    align-items: start;
 }
 
 .organizer-card {
@@ -271,6 +272,9 @@ html {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
 }
 
 .organizer-card:hover {
@@ -410,6 +414,7 @@ html {
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    align-items: start;
 }
 
 .speaker-card {
@@ -419,6 +424,9 @@ html {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
 }
 
 .speaker-card:hover {
@@ -471,6 +479,30 @@ html {
     color: var(--gray-500);
     font-size: 0.9rem;
     font-style: italic;
+}
+
+.speaker-bio-header {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.speaker-bio-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, margin-top 0.3s ease;
+    text-align: left;
+}
+
+.speaker-bio-details.expanded {
+    max-height: 1000px;
+    margin-top: 1rem;
+}
+
+.speaker-bio-details p {
+    color: var(--gray-700);
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 /* Schedule Timeline */
@@ -1022,12 +1054,17 @@ html {
     .organizer-card,
     .speaker-card {
         padding: 1.5rem;
+        min-height: auto;
     }
 
     .profile-image {
         width: 120px;
         height: 120px;
         margin-bottom: 1rem;
+    }
+
+    .speaker-bio-details p {
+        font-size: 0.9rem;
     }
 
     .organizers-section {

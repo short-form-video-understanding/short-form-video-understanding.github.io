@@ -138,18 +138,36 @@ function initializeScheduleToggles() {
         button.addEventListener('click', function(e) {
             e.stopPropagation();
             
-            // Find the event details section
-            const eventHeader = this.closest('.event-header');
-            const eventContainer = eventHeader.parentElement;
-            const eventDetails = eventContainer.querySelector('.event-details');
+            // Check if this is a speaker bio toggle
+            const speakerBioHeader = this.closest('.speaker-bio-header');
+            if (speakerBioHeader) {
+                const speakerCard = speakerBioHeader.closest('.speaker-card');
+                const bioDetails = speakerCard.querySelector('.speaker-bio-details');
+                
+                if (bioDetails && bioDetails.classList.contains('expanded')) {
+                    bioDetails.classList.remove('expanded');
+                    this.classList.remove('active');
+                } else if (bioDetails) {
+                    bioDetails.classList.add('expanded');
+                    this.classList.add('active');
+                }
+                return;
+            }
             
-            // Toggle the expanded class
-            if (eventDetails && eventDetails.classList.contains('expanded')) {
-                eventDetails.classList.remove('expanded');
-                this.classList.remove('active');
-            } else if (eventDetails) {
-                eventDetails.classList.add('expanded');
-                this.classList.add('active');
+            // Otherwise handle event details toggle
+            const eventHeader = this.closest('.event-header');
+            if (eventHeader) {
+                const eventContainer = eventHeader.parentElement;
+                const eventDetails = eventContainer.querySelector('.event-details');
+                
+                // Toggle the expanded class
+                if (eventDetails && eventDetails.classList.contains('expanded')) {
+                    eventDetails.classList.remove('expanded');
+                    this.classList.remove('active');
+                } else if (eventDetails) {
+                    eventDetails.classList.add('expanded');
+                    this.classList.add('active');
+                }
             }
         });
     });
