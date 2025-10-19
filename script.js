@@ -140,13 +140,14 @@ function initializeScheduleToggles() {
             
             // Find the event details section
             const eventHeader = this.closest('.event-header');
-            const eventDetails = eventHeader.nextElementSibling;
+            const eventContainer = eventHeader.parentElement;
+            const eventDetails = eventContainer.querySelector('.event-details');
             
             // Toggle the expanded class
-            if (eventDetails.classList.contains('expanded')) {
+            if (eventDetails && eventDetails.classList.contains('expanded')) {
                 eventDetails.classList.remove('expanded');
                 this.classList.remove('active');
-            } else {
+            } else if (eventDetails) {
                 eventDetails.classList.add('expanded');
                 this.classList.add('active');
             }

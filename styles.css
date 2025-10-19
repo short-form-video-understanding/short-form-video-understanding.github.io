@@ -685,6 +685,27 @@ html {
     flex: 1;
 }
 
+/* Prevent wrapping for simple event text only (not those with event-header) */
+.event:not(:has(.event-header)) {
+    white-space: nowrap;
+}
+
+.panel-subtitle {
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    font-size: 1.0rem;
+    color: var(--gray-600);
+    font-style: italic;
+}
+
+.talk-subtitle {
+    margin-top: 0.5rem;
+    font-size: 1.0rem;
+    color: var(--gray-600);
+    font-style: italic;
+    padding-left: 0;
+}
+
 /* Submission Section */
 .submission-info {
     display: grid;
